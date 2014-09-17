@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en"> 
+	<head> 
+		<meta charset="UTF-8">
+		<title>Developer Portal</title>
+		<meta name="Description" content="Open Sound System is an Open Systems/UNIX audio and MIDI architecture which supports off-the-shelf audio hardware.">
+		<meta name="keywords" content="4front, oss, oss4, open sound system, audio, linux, bsd">
+		<meta name="author" content="Philip Pokarowski">
+		<link rel="copyright" title="Copyright" href="copyright.html">
+		<link rel="stylesheet" href="assets/css/style.css">
+		<link rel="icon" href="favicon.ico">
+		<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Oswald:300'>
+		<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Prosto+One'>
+		<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300'>
+	</head>
+
+	<body>
+		<header>
+			<nav>
+				<div id="wrap"><a id="logo" href="index.html">Home</a></div>
+				<ul>
+					<li><a href="products.html">Products</a></li>
+					<li><a href="support.html">Support</a></li>
+					<li><a id="current" href="Developers.html">Developers</a></li>
+					<li><a href="contact.html">Contact</a></li>
+					<li><a href="/forum">Forum</a></li>
+					<li><a href="press.html">Press Room</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<h1>Developers</h1>
+			<p><a href="http://manuals.opensound.com/developer/">The latest version of Open Sound System v4.0 Developer's Guide</a> contains the details of OSS programming.</p>
+			<p>A white paper describing the design philosophy of OSS 4.0 and changes from the previous versions can be found <a href="http://developer.opensound.com/oss4white.pdf">here</a>. My personal views about Unix/Linux audio are available in my <a href="http://www.4front-tech.com/hannublog/">blog</a>.</p>
+			<p>We have created a mailing list for OSS application and driver developers. See the side bar on left.</p>
+			<p>Open Sound System (binary) installation packages are available from <a href="http://www.opensound.com/download.cgi">our download page</a>. Source code of OSS is available from our <a href="http://developer.opensound.com/sources">source download site</a> under the GPLv2 and CDDL 1.0 licenses.</p>
+			<h3>Getting technical support and reporting bugs</h3>
+			<p>If you are a licensed customer you can file a service request using our <a href="http://www.opensound.com/support.cgi">technical support form</a>. Other users can use our <a href="http://www.opensound.com/forum/">community support forum</a> to get help.</p>
+			<p>An Open Sound developer's mailing list is also available to developers who want technical discussions with 4Front.</p>
+			<p>However if you have downloaded the source code and find a bug in it you should report it to the oss-devel mailing list (see above). We are currently evaluating various bug tracking systems and an one for OSS will be opened in the future.</p>
+
+			<div class="box">
+			<h4>Contents</h4>
+			<ol>
+				<li><a href="#What_is_OSS">What is OSS?</a></li>
+				<li><a href="#Developer_Community">Developer Community</a>
+					<ol>
+						<li><a href="#What_is_the_OSS_Developer_Community_and_why">What is the OSS Developer Community and why?</a></li>
+						<li><a href="#Goals_of_the_Open_Sound_Community">Goals of the Open Sound Community</a></li>
+						<li><a href="#Contributing_your_code_to_OSS">Contributing your code to OSS</a></li>
+						<li><a href="#Joining_the_community">Joining the community</a></li>
+						<li><a href="#Sponsoring_Open_Sound_System">Sponsoring Open Sound System</a></li>
+						<li><a href="#Possible_projects_for_contributors">Possible projects for contributors</a></li>
+					</ol>
+				</li>
+				<li><a href="#Support_for_Developers">Support for Developers</a></li>
+				<li><a href="#Licensing">Licensing</a></li>
+			</ol>
+
+			<h4>Useful Links</h4>
+				<ul>
+					<li><a href="http://www.opensound.com/wiki/index.php/Main_Page">Open Sound Wiki</a></li>
+					<li><a href="http://www.opensound.com/forum/">Open Sound Forum</a></li>
+					<li><a href="https://lists.sourceforge.net/lists/listinfo/opensound-devel">Mailing list (oss-devel)</a></li>
+				</ul>
+				<ul>
+					<li><a href="http://manuals.opensound.com/developer/">API Documentation</a></li>
+					<li><a href="http://manuals.opensound.com/sources/">Documentation for the sources of OSS itself (for driver developers)</a></li>
+				</ul>
+				<ul>
+					<li><a href="http://sourceforge.net/p/opensound/git/ci/master/tree/">Source code repository (git)</a></li>
+					<li><a href="http://developer.opensound.com/sources">Download Source Code</a></li>
+					<li><a href="http://www.opensound.com/download.cgi">Download Binaries</a></li>
+				</ul>
+				<ul><li><a href="http://developer.opensound.com/opensource_oss/Contributor-Agreement.pdf">Contributor's Agreement (PDF)</a></li></ul>
+			</div>
+
+			<h2 id="What_is_OSS">What is OSS?</h2>
+			Open Sound System (OSS) is the first attempt in unifying
+			the digital audio architecture for UNIX. OSS is a set of device drivers
+			that provide a uniform API across all the major UNIX architectures. It
+			supports Sound Blaster or Windows Sound System  compatible sound cards 
+			which can be plugged into
+			any UNIX workstation supporting the ISA or PCI bus architecture. OSS also
+			supports workstations with on-board digital audio hardware.
+
+			<p>Traditionally, each UNIX vendor has provided their own API for processing
+			digital audio. This meant that applications written to a particular UNIX
+			audio API had to be re-written or ported, with possible loss of functionality,
+			to another version of UNIX. Applications written to the OSS API, need to
+			be designed once and then simply re-compiled on any supported UNIX architecture.
+			OSS is source code compatible across all the platforms.
+
+			<p>Most UNIX workstations, thus far, have only provided support for digital
+			audio sampling and playback (business audio). OSS brings the world of MIDI
+			and electronic music to the workstation environment. With the advent of
+			streaming audio, speech recognition/generation, computer telephony, Java
+			and other multimedia technologies, applications on UNIX can now provide
+			the same audio capabilities as those found on Windows NT, OS/2, Windows
+			95 and the Macintosh operating systems. OSS also provides synchronized
+			audio capabilities required for desktop video and animation playback.
+
+			<h2 id="Developer_Community">Developer Community</h2>
+			<h3 id="What_is_the_OSS_Developer_Community_and_why">What is the OSS Developer Community and why?</h3>
+			<p>4Front Technologies has decided to move further development of
+			Open Sound System to a community or consortium within next few
+			years. The goal of this community is to make OSS the common sound
+			subsystem/API for most Unix/Linux/POSIX operating systems.
+			</p>
+			<p>There are almost a dozen of different sound subsystems used in
+			these operating systems. Some of them are based on some older
+			versions of the OSS API while the others are proprietary. Some of
+			them are actively maintained while the others are running out of
+			steam. Each of them are based on their own source base which makes
+			even all the different OSS implementations slightly incompatible.
+			In addition each system has implemented their own drivers for all
+			devices they support and they are not protable between the
+			systems.</p>
+			<p>The situation is most absurd for software developers. Today
+			most Unix/Linux/POSIX systems have the same system calls,
+			libraries and core commands. There may be slightly different
+			implementations of them but it's pretty trivial to write
+			applications that compile and work without even smallest changes
+			under all the operating systems. Even GUI based applications can
+			be ported easily since most of the systems support GTK+ (OTOH some
+			of them still ship only the GTK+ 1.x libraries).</p>
+			<p>But sound is different. To get sound working the developers
+			will have to implement different sound &ldquo;plugins&rdquo; for
+			each system. In addition there are many library/daemon based
+			interfaces that try to fix limitations of some of the sound
+			subsystems. Each plugin will take couple of days to develop and
+			few days, weeks or even months to test and debug (depending on the
+			system). This means unbearable amount of work when compared to the
+			rest of the application. All that time could have spent on
+			developing something useful.</p>
+			<p>This is where Open Sound System comes in the picture. We have
+			spent 25+ man years on developing a kernel level sound subsystem
+			that is easily portable to any oprating system one can imagine.
+			There are already drivers for practically all sound devices
+			available in the market. The feature set of the API has reached
+			the saturation point and there are not much (important) features
+			that could be added. Even the API documentation is almost finished
+			now. And it's finally open sourced (again). So all reasons that
+			still would prevent OSS from becoming the common Unix/POSIX sound
+			system are political.</p>
+			<p>We have realized long time ago that OSS will not be accepted by
+			the open source communities as long as it's not open sourced. It's
+			also likely that political fights will make this goal impossible
+			if the OSS project is not controlled by some democratic
+			organization.</p>
+			<p>The Open Sound Developer Community is will be the first step to
+			this direction. We will move control of the Open Sound System
+			software to a developer community or consortium in the future.
+			However executing this plan may take few years. The first step is
+			availability of the source code which makes it possible to our
+			customers, third parties, potential contributors and everybody who
+			is interested to take a look at the code and use or experiment
+			with it.</p>
+			<p>Next steps such as starting to accept contributions and moving
+			the decision making towards the community will take place later. 
+			</p>
+			<p>4Front Technologies will continue developing the software
+			together with the community. In addition we will provide
+			professional support, consulting and development services for Open
+			Sound System and related services.</p>
+
+			<h3 id="Goals_of_the_Open_Sound_Community">Goals of the Open Sound Community</h3>
+			<p>The goal of the cumminity is to bring together persons and
+			organizations interested in developing Open Sound System as the
+			common sound subsystem for various operating systems. In
+			particular we welcome all companies and communities creating
+			operating systems, competing sound subsystems or sound hardware to
+			join.</p>
+			<p>The community will be politically as neutral as possible. We
+			promote things open source development model and Open Sound System
+			as the common sound API. However we don't try to enforce anything.
+			Companies selling &ldquo;closed source&rdquo; operating systems or
+			applications are also welcome to join. We are also willing to work
+			in co-operation with authors of the other sound APIs to make them
+			to co-exist with OSS.</p>
+
+			<h3 id="Contributing_your_code_to_OSS">Contributing your code to OSS</h3>
+			<p>If you have made some simple change (few line bug fix) to OSS
+			you can mail the diff (diff -c or diff -u) to the oss-devel
+			mailing list. We will check the change and apply it to the sources
+			if it's OK.</p>
+			<p>If you are planning to do bigger contributions (new driver, new
+			OS port or some new features) then you should join the community
+			and to fill the contributor's agreement (see below). However it's
+			highly recommended that you propose your changes on the oss-devel
+			mailing list before even starting to do any hacking on OSS. Also
+			check the <a href="http://developer.opensound.com/opensource_oss/contributing.html">instructions
+			for making contributions</a>.</p>
+
+			<h3 id="Joining_the_community">Joining the community</h3>
+			<p>For the	time being there is no registration page available for new
+			members. You need to fill in the <a href="Contributor-Agreement.pdf">contributor
+			agreement</a> and send it to 4Front Technologies. Fax it to <b>(+1)
+			310 202 0496</b> (or scan and send it as an E-mail
+			attachment). Then send E-mail to <a href="mailto:support@opensound.com">support@opensound.com</a>
+			and tell us the nick name you would like to use. The nick will be
+			required to access our source repository and bug tracking system.
+			We will then E-mail you the further instructions.</p>
+			<p>The idea of the contributor
+			agreement is that you give 4Front Technologies non-exclusive
+			rights to distribute your code as a part of OSS. In return we
+			guarantee that if your contribution is released under an license
+			it will also be distributed under all the others (including GPLv2,
+			CDDL1.0 and BSD). For you this means that we cannot make your code
+			closed source by distributing it <U>only</U> under some binary
+			only license. Non-exclusive means that you can distribute the same
+			code yourself under any license provided that it doesn't conflict
+			with the terms of the contributor's agreement.</p>
+			<p>We have created an <a href="http://mailman.opensound.com/mailman/listinfo/oss-devel">oss-devel</a>
+			mailing list for persons who are interested in developing Open
+			Sound System itself and applications for it. Subscribe to the list
+			if you are interested in joining the community or if you are
+			interested about OSS development in some other way.</p>
+			<p>We are setting up a source
+			repository (probably Mercurial) and a bug tracking system
+			(Bugzilla) in the near future. Until that the contributions can be
+			posted to the oss-devel mailing list.</p>
+
+			<h3 id="Sponsoring_Open_Sound_System">Sponsoring Open Sound System</h3>
+			<p>Open Sound System is now an open source project. This means
+			that we have to fund the development in some other way than
+			selling the software itself.</p>
+			<p>There are two ways to sponsor development of Open Sound System.
+			The preferred way is to order an <a href="http://www.opensound.com/ossorder.html">OSS
+			license</a>. In this way you will get free technical support.</p>
+			<p>Another way to donate is to send a PayPal payment (any amount)
+			to <a href="mailto:hannu@opensound.com">hannu@opensound.com</a>.</p>
+			<p>Third way is to sponsor a port of Open Sound System for a new
+			operating system or (Linux) distribution. We will also do custom
+			driver development for new sound devices (open source or
+			proprietary). Please contact <a href="mailto:sales@opensound.com">sales@opensound.com</a>
+			for more info.</p>
+
+			<h3 id="Possible_projects_for_contributors">Possible projects for contributors</h3>
+			<p>There are numerous areas where contributors could give their
+			helping hand. Below are just some examples of them:</p>
+			<ul>
+				<li><p>Maintaining and improving the operating system
+				interfaces/ports for Linux, FreeBSD and SCO Unixware/OpenServer
+				(4Front is maintaining the Solaris interface under a contract).</p></li>
+				<li><p>Creating new operating system ports for NetBSD, OpenBSD,
+				AIX, HP-UX, LynxOS, VxWorks, MacOS and so on (even Windows might
+				be possible). 
+				</p></li>
+				<li><p>Creating OSS installation packages for various Linux and
+				BSD versions/distributions and keeping them up to date with the
+				latest kernel and distribution versions. This has been beyond our
+				resources and for this reason installing OSS requires
+				availability of the kernel development environment (kernel
+				source, gcc, binutils, make, etc) in each customer system.</p>
+				<li><p>Maintainers are needed for various low level drivers.
+				Maintaining some drivers such as HD audio (Azalia) and USB
+				currently require more resources than we have. USB is currently
+				supported only under Linux and Solaris but not under FreeBSD and
+				SCO.</p></li>
+				<li><p>There are low level drivers missing for many devices such
+				as Hammerfall/HDSP.</p></li>
+				<li><p>Adding power management support to OSS. OSS will need a
+				common framework that works with any operating system we support.
+				In addition several low level drivers will have to be modified to
+				work with this framework.</p></li>
+				<li><p>Adding support for modem codecs available in many laptops.
+				Related to this is creation of a soft modem application that is
+				compatible with OSS.</p></li>
+				<li><p>The ALSA compatibility interface needs an maintainer who
+				preferably has good knowledge of ALSA's internals (alsa-driver
+				and/or alsa-lib). OSS has now a library based ALSA emulation and
+				also an experimental kernel space one (known as Cuckoo).</p></li>
+				<li><p>Upgrading or creating the OSS plugins of various audio
+				applications to be OSS 4.0 compatible. Many applications are
+				designed for the 10 years old OSS 3.8 API and they use many
+				features that are unreliable. For example parsing /dev/sndstat to
+				find devices, use of the mixer API for recording/play volume
+				control or recording source selection and use of certain ioctl
+				calls or features like non-blocking I/O for wrong purposes. OSS
+				has has proper solutions for these problems for years.</p></li>
+				<li><p>The new MIDI subsystem of OSS is currently under
+				development and there are jobs for several developers who have
+				good understanding of MIDI and computer music applications.</p></li>
+			</ul>
+
+			<h2 id="Support_for_Developers">Support for Developers</h2>
+			<h3>Do you have problems with Open Sound System (OSSv4) based application development?</h3>
+			<p>No problem!</p>
+			<p>4Front Technologies provides wide range of consulting and
+			custom software development services:</p>
+			<ul>
+				<li><p>Quick source code reviews to identify possible OSS related
+				problems in your application.</p>
+				<li><p>Application architecture design.</p>
+				<li><p>Audio hardware architecture design.</p>
+				<li><p>Implementation of source code templates for the audio
+				related parts of your application.</p>
+				<li><p>Fixing 3rd party applications that use the
+				older OSSv3 API.</p>
+				<li><p>Porting non-OSS applications to support the OSS API.</p>
+				<li><p>Porting OSS to new operating systems and CPU
+				architectures.</p>
+				<li><p>Designing low level OSS drivers for new hardware
+				(including custom chips).</p>
+				<li><p>Audio related application development and software
+				integration from scratch.</p>
+			</ul>
+			<p>For more info, please contact <a href="mailto:hannu@opensound.com?subject=OSS%20application%20development">Hannu	Savolainen</a>.</p>
+
+			<h3>DSP	development services</h3>
+			<p>In addition our <a href="http://www.oss3d.com/">OSS/3D</a> team
+			provides development services for high quality DSP solutions,
+			including:</p>
+			<ul>
+				<li><p><a href="http://www.oss3d.com/">OSS/3D effect plugins</a></p>
+				<li><p><a href="http://www.opensound.com/proaudio.html">VST/VSTi
+				instruments</a></p>
+				<li><p><a href="http://www.truepianos.com/">http://www.truepianos.com/</a></p>
+				<li><p>Custom DSP software/algorithms, including filters, sample
+				rate conversion, compressors/limiters, etc.</p>
+				<li><p>DSP hardware design (SHARC, BlackFin, etc)</p>
+			</ul>
+
+			<h2 id="Licensing">Licensing</h2>
+			<p>The source code for Open Sound System is currently avaliable
+			under four different licenses:</p>
+			<ul>
+			<li><p><a href="http://www.gnu.org/licenses/gpl.html">GPL version 2</a></p></li>
+			<li><p><a href="http://opensource.org/licenses/CDDL-1.0">CDDL</a></p></li>
+			<li><p><a href="http://www.freebsd.org/copyright/freebsd-license.html">BSD</a></p></li>
+			<li><p>Commercial licenses are available from 4Front Technologies
+			for applications and systems that are not compatible with the
+			above open source licenses. Commercial licenses are also
+			available for entities not wishing to use Open Sound System under
+			any of the above open source licenses or who would like to get
+			technical support from 4Front Technologies.<br>See <a href="http://www.opensound.com/license.html">4Front Commercial License</a>.</p></li>
+			</ul>
+			<p>The GPL source package contains all the operating system ports.
+			The CDDL package contains only the Solaris version and the BSD
+			package only the FreeBSD version (for the time being). 
+			</p>
+			<p>Note that under all the above licensing schemes the copyright
+			owner is 4Front Technologies.</p>
+
+		</main>
+		<footer><a href="copyright.html">Copyright</a> 1995-2014, 4Front Technologies. All rights reserved.</footer>
+	</body>
+</html>

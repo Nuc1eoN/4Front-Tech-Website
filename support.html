@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en"> 
+	<head> 
+		<meta charset="UTF-8">
+		<title>Technical Support</title>
+		<meta name="Description" content="Open Sound System is an Open Systems/UNIX audio and MIDI architecture which supports off-the-shelf audio hardware.">
+		<meta name="keywords" content="4front, oss, oss4, open sound system, audio, linux, bsd">
+		<meta name="author" content="Philip Pokarowski">
+		<link rel="copyright" title="Copyright" href="copyright.html">
+		<link rel="stylesheet" href="assets/css/style.css">
+		<link rel="icon" href="favicon.ico">
+		<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Oswald:300'>
+		<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Prosto+One'>
+	</head>
+
+	<body>
+		<header>
+			<nav>
+				<div id="wrap"><a id="logo" href="index.html">Home</a></div>
+				<ul>
+					<li><a href="products.html">Products</a></li>
+					<li><a id="current" href="support.html">Support</a></li>
+					<li><a href="developers.html">Developers</a></li>
+					<li><a href="contact.html">Contact</a></li>
+					<li><a href="/forum">Forum</a></li>
+					<li><a href="press.html">Press Room</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<p><b>Please enter a precise description of your problem here and give your	contact information.<BR> Since the answer will be sent by email please make	sure the E-mail address you give is correct.</b></p>
+
+			<form  method="post" enctype="multipart/form-data" action="support.cgi">
+				<hr>
+				<fieldset>
+					<legend>Contact Details</legend>
+
+					<p><label><input name="name" placeholder="John Doe">Name</label></p>
+
+					<p><label><input  name="company">Company</label></p>
+				<!--
+					<p><label><input name="address">Address</label></p>
+
+					<p><label><input name="city">City</label></p>
+
+					<p><label><input name="state">State/Country</label></p>
+
+					<p><label><input name="zip">Zip:</label></p>
+				-->
+					<p><label><input name="phone">Phone</label></p>
+
+					<p><label><input name="email" placeholder="mail@example.com">Email</label></p>
+				</fieldset>
+
+				<fieldset>
+					<legend>System Configuration</legend>
+
+					<p><label><input name="workstation">Computer Model</label></p>
+
+
+					<p><label><input name="osversion">Operating System</label></p>
+
+					<p><label><input name="soundcard">Audio hardware</label></p>
+				</fieldset>
+
+				<p>Note: In order for us to properly respond to your technical support
+				questions<br>please provide the file <b>soundon.log</b> found in the OSS 
+				installation directory<br>(default is /usr/lib/oss).</p>
+				<p>Please upload your soundon.log file:</p>
+				<input type="file" name="upfile"><br>
+				<HR>
+				<p>Please describe the problem you are having:</p>
+				<textarea name="problem" rows="25" cols="70" wrap="hard"></textarea>
+
+				<input type="submit" value="Submit"><input type="reset" value="Clear">
+			</form>
+		</main>
+		<footer><a href="copyright.html">Copyright</a> 1995-2014, 4Front Technologies. All rights reserved.</footer>
+	</body>
+</html>
