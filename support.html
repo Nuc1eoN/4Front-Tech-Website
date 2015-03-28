@@ -28,10 +28,11 @@
 			</nav>
 		</header>
 		<main>
-			<p><b>Please enter a precise description of your problem here and give your	contact information.<BR> Since the answer will be sent by email please make	sure the E-mail address you give is correct.</b></p>
+			<h1>Support Form <br>
+			<span class="subheading">Please enter a precise description of your problem here and give your contact information</span>
+			</h1>
 
 			<form  method="post" enctype="multipart/form-data" action="support.cgi">
-				<hr>
 				<fieldset>
 					<legend>Contact Details</legend>
 
@@ -63,12 +64,16 @@
 					<p><label><input name="soundcard">Audio hardware</label></p>
 				</fieldset>
 
+				<p>Since the answer will be sent by email please make	sure the E-mail address you give is correct.</p>
+
 				<p>Note: In order for us to properly respond to your technical support
 				questions<br>please provide the file <b>soundon.log</b> found in the OSS 
 				installation directory<br>(default is /usr/lib/oss).</p>
+
 				<p>Please upload your soundon.log file:</p>
+
 				<input type="file" name="upfile"><br>
-				<HR>
+				<hr>
 				<p>Please describe the problem you are having:</p>
 				<textarea name="problem" rows="25" cols="70" wrap="hard"></textarea>
 

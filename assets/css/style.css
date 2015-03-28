@@ -8,7 +8,8 @@ body {
 	background-image: linear-gradient(#08C, #782C2C);
 	background-image: linear-gradient(#08C, #505050);
 	background-image: linear-gradient(#08C, #2A444A);
-	font-family: sans-serif;
+	background-image: linear-gradient(#2E4B5A, #2A444A);
+	font-family: "Open Sans",sans-serif;
 	font-size: 14px;
 	color: #333;
 	line-height: 1.42857143;
@@ -17,8 +18,18 @@ body {
 header {
 	position: relative;
 	background-color: #262626;
-	border-top: 4px solid #08C;
+	border-top: 4px solid #2E4B5A;
 	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+::selection {
+	color: #333;
+    background: #B74545;
+}
+
+::-moz-selection {
+	color: #333;
+    background: #B74545;
 }
 
 li {
@@ -26,7 +37,7 @@ li {
 }
 
 a {
-	color: #08C;
+	color: #B74545;
 	text-decoration: none;
 }
 
@@ -39,7 +50,15 @@ a:hover, a:focus {
 }*/
 
 h1 {
-	background-color: #08C;
+	font-weight: 500;
+	font-size: 30px;
+	letter-spacing: 0.5px;
+	/* only needed for background: */
+	background-color: #262626;
+	color: #787878;
+	color: #B74545;
+	margin: -10px -20px 18px;
+	padding: 20px;
 }
 
 h2, h3, h4 {
@@ -48,6 +67,7 @@ h2, h3, h4 {
 
 h2 {
 	border-bottom: 1px solid #D5D5D5;
+	border-bottom: 1px solid #B0B0B0;
 	font-size: 36px;
 	font-weight: 500;
 	margin: 0 0 10px 0;
@@ -63,6 +83,13 @@ h3 {
 h4 {
 	font-size: 20px;
 	font-weight: 300;
+}
+
+.subheading {
+	color: #B0B0B0;
+	font-size: 14px;
+	letter-spacing: initial;
+	font-style: italic;
 }
 
 nav > #wrap {
@@ -87,6 +114,7 @@ nav {
 }
 
 nav > ul {
+	float: right; /* only needed for right float, see http://stackoverflow.com/questions/20920265/horizontal-menu-how-to-float-right-but-keep-the-menu-items-in-the-correct-order */
 	margin: 0 auto; /* "auto" needed for smaller reso */
 }
 
@@ -97,22 +125,23 @@ nav > ul > li {
 }
 
 nav > ul > li > a {
-	display:block;
+	display: block;
 	height: 70px;
 	padding: 30px 15px 0px;
 }
 
 nav > ul > li > a:hover, nav > ul > li > #current {
 	background-image: linear-gradient(#08C, #2A444A);
+	background-image: linear-gradient(#2E4B5A, #2A444A);
 	box-shadow: 5px 0px 3px -3px rgba(0, 0, 0, 0.4), -5px 0px 3px -3px rgba(0, 0, 0, 0.4); /* Optional */
 	/*margin-bottom: -8px;  needed because of border-button interference with <main> */
-	color: white;
+	color: #B0B0B0;
 	text-decoration: none;
 	position: relative; /* needed for z-index */
 }
 
 nav > ul > li > a:focus {
-	color: white;
+	color: #B0B0B0;
 	text-decoration: none;
 }
 
@@ -127,7 +156,7 @@ nav > ul > li > a:focus {
 	display: inline-block; /* needed! */
 	position: relative;
 	text-indent: -9999px;
-	width: 232px;
+	width: 244px;
 	height: 80px;
 	background: url(../images/logo.png) no-repeat;
 	margin-top: 10px;
@@ -137,7 +166,7 @@ nav > ul > li > a:focus {
 	content: "";
 	position: absolute;
 	top: 0; left: 0; bottom: 0; right: 0;
-	background: url(../images/logo.png) -233px 0 no-repeat;
+	background: url(../images/logo.png) -244px 0 no-repeat;
 	opacity: 0;
 	transition: opacity 0.4s;
 }
@@ -153,6 +182,7 @@ main {
 	padding: 10px 20px 10px;
 	background-color: #F4F4F4;
 	background-color: #F0F0F0;
+	background-color: #E0E0E0;
 	box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 	display: block; /* only for backwards compatibility, e.g. IE and Opera legacy */
 }
@@ -161,13 +191,13 @@ footer {
 	margin-top: 40px; 
 	margin-bottom: 30px;
 	text-align: center;
-	color: #ACACAC;
+	color: #B0B0B0;
 }
 
 
 
 @media (min-width: 980px){
-	nav {max-width: 1020px;}
+	nav {max-width: 980px;}
 	#logo {float: left; margin-right: 30px;}
 	main {max-width: 980px;} /* + 40px padding */
 }
@@ -207,6 +237,7 @@ footer {
 
 .box {
 	border: 1px solid #D5D5D5;
+	border: 1px solid #B0B0B0;
 	width: 300px;
 	padding: 0 10px 0;
 }
