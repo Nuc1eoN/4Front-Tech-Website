@@ -92,10 +92,6 @@ h4 {
 	font-style: italic;
 }
 
-nav > #wrap {
-	text-align: center;
-}
-
 th {
 	font-size: 18px;
 	text-decoration: underline;
@@ -109,8 +105,9 @@ table {
 nav {
 	height: 100px;
 	margin: 0 auto;
-	font-family: 'Oswald', sans-serif;
+	font-family: "Oswald", sans-serif;
 	font-size: 19px;
+	text-align: center;
 }
 
 nav > ul {
@@ -198,7 +195,7 @@ footer {
 
 @media (min-width: 980px){
 	nav {max-width: 980px;}
-	#logo {float: left; margin-right: 30px;}
+	#logo {float: left;}
 	main {max-width: 980px;} /* + 40px padding */
 }
 
